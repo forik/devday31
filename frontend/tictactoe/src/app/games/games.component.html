@@ -1,0 +1,32 @@
+<h3>Your Games</h3>
+
+<ul style="margin-bottom:25px">
+  <li *ngFor='let game of currentGames'>
+    <ng-container *ngIf="game.waiting else nonWaiting">
+      <h4>{{game.name}}</h4>
+      <strong>Waiting for another player</strong>
+      <br />
+      <button class="btn btn-default" (click)="showInvite(game.gameId)">Invite a friend</button>
+    </ng-container>
+    <ng-template #nonWaiting>
+      <h4>
+        <a [routerLink]="[game.gameId]">
+          {{game.name}}
+        </a>
+        &nbsp;
+        <small *ngIf="game.yourMove">
+          <label class="label label-danger">Your Move</label>
+        </small>
+      </h4>
+      Playing against
+      <strong>{{game.userNames}}</strong>
+      <br />
+      <strong>{{game.numMoves}}</strong> moves made
+    </ng-template>
+    <i *ngIf="currentGames?.length == 0">
+      No games available
+    </i>
+  </li>
+</ul>
+<button class="btn btn-primary" (click)="createGame()">Start a new game</button>
+<button class="btn btn-success" (click)="joinGame()">Join a game</button>
