@@ -17,9 +17,9 @@ namespace Silo
             {
                 Defaults =
                 {
-                    ProxyGatewayEndpoint = new IPEndPoint(IPAddress.Any, 50000),
+                    ProxyGatewayEndpoint = new IPEndPoint(IPAddress.Any, int.Parse(args[0])),
                     HostNameOrIPAddress = string.Empty,
-                    Port = 60000
+                    Port = int.Parse(args[1])
                 }
             };
 

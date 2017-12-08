@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Silo": {
+      "commandName": "Project",
+      "commandLineArgs": "50000 60000"
+    }
+  }
+}
